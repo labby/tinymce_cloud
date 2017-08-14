@@ -3,8 +3,7 @@
 Tinymce editor from the cloud as addon for LEPTON CMS.
 
 
-####
-Notice
+#### Notice
 
 Please keep in mind, that you need a key to run this addon properly. <br />
 https://www.ephox.com/blog/tinymce-cloud-basic-tier-delivers-even-more-value-including-free-image-proxy-service/
@@ -17,8 +16,7 @@ Rename the file key.lte in templates directory to my_key.lte and place the tinym
 ```
 
 
-####
-Infos
+#### Infos
 
 Get more information about tinymce cloud:<br />
 https://www.tinymce.com/docs/get-started-cloud/
