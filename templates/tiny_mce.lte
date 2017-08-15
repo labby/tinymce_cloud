@@ -43,8 +43,11 @@ tinymce.init({
 			"droplets": "{{ external_plugin_url }}/droplets/plugin.min.js",
 			"mailto": "{{ external_plugin_url }}/mailto/plugin.min.js",			
 			"pagelink": "{{ external_plugin_url }}/pagelink/plugin.min.js"					
-			},
+	},
 
+    file_browser_callback: function(fieldName, url, objectType, w) {
+        filemanager(fieldName, url, objectType, w);
+	},			
    
 	extended_valid_elements :"video[type|autoplay|controls|muted|loop|preload|height], button[onclick], span[style|class],script[charset|defer|language|src|type],"
 							+"i[class],iframe[src|class|width|height], audio[type|autoplay|controls|muted|loop|preload], img[src|alt|title|style|onmouseover|onmouseout]",		
