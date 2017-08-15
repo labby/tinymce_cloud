@@ -144,7 +144,7 @@ function show_wysiwyg_editor( $name, $id, $content, $width=NULL, $height=NULL, $
 	if (!defined("tiny_mce_loaded")) {
 		
 		define("tiny_mce_loaded", true);
-
+		$tiny_mce_path = LEPTON_PATH."/modules/tinymce_cloud/tinymce";
 		$tiny_mce_url = LEPTON_URL."/modules/tinymce_cloud/tinymce";
 		
 		$temp_css_path = "/editor.css";
@@ -168,15 +168,12 @@ function show_wysiwyg_editor( $name, $id, $content, $width=NULL, $height=NULL, $
 		 */
 		$lang = strtolower( LANGUAGE );
 		$language_file = $tiny_mce_url ."/langs/" .$lang .".js";
-//die(print_r($language_file));	
-		if ( !file_exists ($language_file) ) 
+
+		if ( !file_exists ($tiny_mce_path ."/langs/" .$lang .".js") ) 
 		{
 			$language_file = '';
 		}		
-		
-//		$language = "https://cloud.tinymce.com/stable/languages/" .$lang .".js";		
-//		$lang = strtolower( LANGUAGE );		
-//		$language = (file_exists( dirname(__FILE__)."/tiny_mce/langs/". $lang .".js" )) ? $lang	: "";
+
     
 		/**
 		 *	Get wysiwyg-admin information for this editor.
