@@ -1,12 +1,12 @@
 {% autoescape false %}
 <!-- Load TinyMCE -->
 {% include('my_key.lte') %}
-<link href="{{ LEPTON_URL }}/modules/tiny_mce_4/tiny_mce/skins/skin.custom.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript">
+var LEPTON_external_plugin_url = "{{ external_plugin_url }}";
 
 tinymce.init({
-	selector: "{{ selector }}",
-	language: "{{ language }}",  
+	selector: "{{ selector }}", 
+	language_url : "{{ language }}",
 	schema: "html5",
 	theme: "modern",
 	width: "{{ width }}",
@@ -34,12 +34,11 @@ tinymce.init({
 		{title: 'image-custom', value: 'image_custom'}		
 	  ],
 
-	     external_filemanager_path:"{{ filemanager_url}}/filemanager/",
-   filemanager_title:"Responsive Filemanager" ,
-   filemanager_access_key:"{{ ACCESS_KEY }}" ,
+	external_filemanager_path:"{{ filemanager_url}}/filemanager/",
+	filemanager_title:"Responsive Filemanager" ,
+	filemanager_access_key:"{{ ACCESS_KEY }}" ,
    
-   
-   external_plugins: { 
+	external_plugins: { 
 			"filemanager" : "{{ filemanager_url }}/filemanager/plugin.min.js",
 			"droplets": "{{ external_plugin_url }}/droplets/plugin.min.js",
 			"mailto": "{{ external_plugin_url }}/mailto/plugin.min.js",			
@@ -58,8 +57,7 @@ tinymce.init({
 		 "searchreplace wordcount visualblocks visualchars fullscreen insertdatetime nonbreaking",
 		 "save table contextmenu directionality template paste code media"		 
 	],
-	
-	content_css: {{ css_file }},
+	content_css: "{{ css_file }}",	
 	toolbar: "{{ toolbar }}", 
 
 style_formats: [
@@ -96,7 +94,6 @@ style_formats: [
 	
 {% include('custom.lte') ignore missing %}		
 }); 
-
 
 </script>
 <!-- /TinyMCE -->

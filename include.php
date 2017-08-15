@@ -145,25 +145,21 @@ function show_wysiwyg_editor( $name, $id, $content, $width=NULL, $height=NULL, $
 		
 		define("tiny_mce_loaded", true);
 
-		$tiny_mce_url = LEPTON_URL."/modules/tiny_mce_4/tiny_mce";
+		$tiny_mce_url = LEPTON_URL."/modules/tinymce_cloud/tinymce";
 		
-		$temp_css_path = "editor.css";
+		$temp_css_path = "/editor.css";
 		$template_name = get_template_name( $temp_css_path );
-			
+		
 		/**
-		 *	Work out default CSS file to be used for TINY_MCE textareas.
 		 *	If editor.css file exists in default template folder or template folder of current page
 		 */
-		$css_file = ($template_name == "none")
-			?	$tiny_mce_url .'/skins/'.$skin.'/content.min.css'
-			:	LEPTON_URL .'/templates/' .$template_name .$temp_css_path;
-
-		/**
-		 * See: http://www.tinymce.com/wiki.php/Configuration:content_css
-		 *
-		 */
-		$temp_css_file = "/modules/tiny_mce_4/tiny_mce/skins/skin.custom.css";
-		if (file_exists(LEPTON_PATH.$temp_css_file)) $css_file = "['".$css_file."','".LEPTON_URL.$temp_css_file."']";
+		$css_file = LEPTON_URL .'/templates/' .$template_name .$temp_css_path;
+		
+		if ( !file_exists ($css_file) ) 
+		{
+			$css_file = '';
+		}
+		
 		
 		/**
 		 *	Include language file
@@ -171,7 +167,14 @@ function show_wysiwyg_editor( $name, $id, $content, $width=NULL, $height=NULL, $
 		 *	TinyMCE will use english as the defaut language in this case.
 		 */
 		$lang = strtolower( LANGUAGE );
-		$language = (file_exists( "https://cloud.tinymce.com/stable/langs/" .$lang .".js" )) ? $lang	: "";		
+		$language_file = $tiny_mce_url ."/langs/" .$lang .".js";
+//die(print_r($language_file));	
+		if ( !file_exists ($language_file) ) 
+		{
+			$language_file = '';
+		}		
+		
+//		$language = "https://cloud.tinymce.com/stable/languages/" .$lang .".js";		
 //		$lang = strtolower( LANGUAGE );		
 //		$language = (file_exists( dirname(__FILE__)."/tiny_mce/langs/". $lang .".js" )) ? $lang	: "";
     
@@ -184,7 +187,7 @@ function show_wysiwyg_editor( $name, $id, $content, $width=NULL, $height=NULL, $
 		if (in_array("mod_wysiwyg_admin", $all_tables)) {
 			$wysiwyg_admin_editor_settings = array();
 			$database->execute_query(
-				"SELECT `skin`, `menu`,`width`,`height` from `".TABLE_PREFIX."mod_wysiwyg_admin` where `editor` ='tiny_mce_4'",
+				"SELECT `skin`, `menu`,`width`,`height` from `".TABLE_PREFIX."mod_wysiwyg_admin` where `editor` ='tinymce_cloud'",
 				true,
 				$wysiwyg_admin_editor_settings,
 				false
@@ -214,7 +217,7 @@ function show_wysiwyg_editor( $name, $id, $content, $width=NULL, $height=NULL, $
 			'tiny_mce_url'	=> $tiny_mce_url,
 			'external_plugin_url'	=> $external_plugin_url,			
 			'selector'		=> 'textarea[id!=no_wysiwyg]',
-			'language'		=> $language,      
+			'language'		=> $language_file,      
 			'width'		=> $width,
 			'height'	=> $height,
 			'css_file'	=> $css_file,
