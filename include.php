@@ -124,7 +124,7 @@ function show_wysiwyg_editor( $name, $id, $content, $width=NULL, $height=NULL, $
 	 *
 	 */
 	require_once( dirname(__FILE__)."/class.editorinfo.php" );
-	$oTinyMCE_info = new editorinfo_TINY_MCE_4();
+	$oTinyMCE_info = new editorinfo_TINYMCE_CLOUD();
 	
 	$toolbar = $oTinyMCE_info->toolbars[ $oTinyMCE_info->default_toolbar ];
 	$skin = $oTinyMCE_info->default_skin;

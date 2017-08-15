@@ -18,21 +18,21 @@
  *	Include custom settings for toolbar
  *
  */	
-if (file_exists( LEPTON_PATH."/modules/tiny_mce_4/class.editorinfo.custom.php")) {
-	include_once( LEPTON_PATH."/modules/tiny_mce_4/class.editorinfo.custom.php");
+if (file_exists( LEPTON_PATH."/modules/tinymce_cloud/class.editorinfo.custom.php")) {
+	include_once( LEPTON_PATH."/modules/tinymce_cloud/class.editorinfo.custom.php");
 } else {
 
-	class editorinfo_TINY_MCE_4
+	class editorinfo_TINYMCE_CLOUD
 	{
 		/**
 		 *	@var	string	Holds the name of the editor - display inside wysiwyg-admin.	
 		 */
-		protected $name		= "tiny_mce_4";
+		protected $name		= "tinymce_cloud";
 
 		/**
 		 *	@var	string	Holds the guid of this class.
 		 */
-		protected $guid		= "838FA3CA-4519-4404-8EF3-5FF015056086";
+		protected $guid		= "b39dd4eb-5d05-4408-af4f-68ab6006cdf0";
 
 		/**
 		 *	@var	string	Holds the current version of this class.
