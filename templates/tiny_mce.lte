@@ -57,7 +57,7 @@ tinymce.init({
 		 "searchreplace wordcount visualblocks visualchars fullscreen insertdatetime nonbreaking",
 		 "save table contextmenu directionality template paste code media"		 
 	],
-	content_css: "{{ css_file }}",	
+	content_css: {{ css_file }},	
 	toolbar: "{{ toolbar }}", 
 
 style_formats: [

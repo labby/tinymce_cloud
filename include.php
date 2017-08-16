@@ -155,11 +155,17 @@ function show_wysiwyg_editor( $name, $id, $content, $width=NULL, $height=NULL, $
 		 */
 		$css_file = LEPTON_URL .'/templates/' .$template_name .$temp_css_path;
 		
-		if ( !file_exists ($css_file) ) 
+		if ( !file_exists (LEPTON_PATH .'/templates/' .$template_name .$temp_css_path) ) 
 		{
 			$css_file = '';
 		}
 		
+		/**
+		 * See: http://www.tinymce.com/wiki.php/Configuration:content_css
+		 *
+		 */
+		$temp_css_file = "/modules/tinymce_cloud/css/backend.css";
+		if (file_exists(LEPTON_PATH.$temp_css_file)) $css_file = "['".$css_file."','".LEPTON_URL.$temp_css_file."']";
 		
 		/**
 		 *	Include language file
