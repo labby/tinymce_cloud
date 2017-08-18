@@ -34,6 +34,18 @@ if (defined('LEPTON_PATH')) {
 // end include class.secure.php
 
 /**
+ *	create a my_key file
+ *
+ */
+if(!file_exists( __DIR__."/templates/my_key.lte"))
+{
+	rename(
+		__DIR__."/templates/key.lte",
+		__DIR__."/templates/my_key.lte"
+	);
+}
+
+/**
  *	Update wysiwyg-admin
  *
  */
