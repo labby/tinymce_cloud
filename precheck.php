@@ -37,17 +37,17 @@ if (defined('LEPTON_PATH')) {
 
 $PRECHECK['VERSION']        = array(
     'VERSION' => '3.0.0',
-    'OPERATOR' => '>'
+    'OPERATOR' => '>='
 );
 
 $PRECHECK['ADDONS']      = array(
     'wysiwyg_admin' => array(
-        'VERSION' => '2.1.4',
+        'VERSION' => '2.1.3',
         'OPERATOR' => '>='
     ),
     'lib_r_filemanager' => array(
         'VERSION' => '9.11.3',
-        'OPERATOR' => '>'
+        'OPERATOR' => '>='
     ),	
 );
 
