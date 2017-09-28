@@ -1,5 +1,6 @@
 {% autoescape false %}
 <!-- Load TinyMCE -->
+<link rel="stylesheet" type="text/css" href="{{ backend_css }}" media="all">
 {% include('my_key.lte') %}
 <script type="text/javascript">
 var LEPTON_external_plugin_url = "{{ external_plugin_url }}";
